@@ -1,0 +1,5 @@
+= form_for :show, url: shows_path, method: :post do |f|
+  = f.text_field :title, placeholder: "Title"
+  = f.select :month, [["January"], ["February"], ["March"], ["April"], ["May"], ["June"], ["July"], ["August"], ["September"], ["October"], ["November"], ["December"]]
+  = f.select :year, [["2013"], ["2014"], ["2015"]]
+  = f.submit

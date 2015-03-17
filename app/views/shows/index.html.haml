@@ -1,0 +1,7 @@
+%h1 Shows
+- @shows.each do |show|
+  %h2= "#{show.title}, #{show.month}--#{show.year}"
+  %ul
+    -show.plays.each do |play|
+      %li= link_to play.title, "/plays/#{play.id}"
+// Need to add Show month/year
