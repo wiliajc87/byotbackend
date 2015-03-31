@@ -11,7 +11,8 @@
 %ul
 - @actors.each do |actor|
   %li= "#{actor.first_name} #{actor.last_name}"
-%h2 Others
-%ul
-- @others.each do |other|
-  %li= "#{other.first_name} #{other.last_name}"
+- if @others.count != 0
+  %h2 Others
+  %ul
+  - @others.each do |other|
+    %li= "#{other.participant.first_name} #{other.participant.last_name}--#{other.role}"
