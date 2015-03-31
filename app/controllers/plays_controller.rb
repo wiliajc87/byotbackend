@@ -19,7 +19,7 @@ class PlaysController < ApplicationController
       @actors << actor.participant
     end
     @play.performances.where.not(:role => ["Actor","Writer","Director"]).each do |other|
-      @others << other.participant
+      @others << other
     end
   end
 end
