@@ -19,7 +19,6 @@ ActiveRecord::Schema.define(version: 20150331193055) do
     t.string   "email"
     t.string   "phone"
     t.boolean  "contact",    default: true
-    t.integer  "show_count", default: 0
     t.string   "notes"
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false

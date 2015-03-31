@@ -1,1 +1,4 @@
-Plays Home
+%h1 Plays Home
+%ul
+-@plays.each do |play|
+  %li= link_to play.title, "/plays/#{play.id}"

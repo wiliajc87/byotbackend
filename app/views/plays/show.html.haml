@@ -1,1 +1,17 @@
 %h1= @play.title
+%h2 Directors
+%ul
+- @directors.each do |director|
+  %li= "#{director.first_name} #{director.last_name}"
+%h2 Writers
+%ul
+- @writers.each do |writer|
+  %li= "#{writer.first_name} #{writer.last_name}"
+%h2 Actors
+%ul
+- @actors.each do |actor|
+  %li= "#{actor.first_name} #{actor.last_name}"
+%h2 Others
+%ul
+- @others.each do |other|
+  %li= "#{other.first_name} #{other.last_name}"

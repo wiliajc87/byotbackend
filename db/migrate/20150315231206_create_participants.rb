@@ -6,7 +6,6 @@ class CreateParticipants < ActiveRecord::Migration
       t.string :email
       t.string :phone
       t.boolean :contact, default: true
-      t.integer :show_count, default: 0
       t.string :notes
 
       t.timestamps null: false

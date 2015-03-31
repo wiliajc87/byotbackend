@@ -5,7 +5,6 @@ Participant.create(:first_name => "Nathan", :last_name => "Bosce", :email => "na
 Participant.create(:first_name => "Dan", :last_name => "Foley", :email => "dan@example.com", :contact => true)
 Participant.create(:first_name => "Vin", :last_name => "Grecco", :email => "vin@example.com", :contact => true)
 Participant.create(:first_name => "Rachel", :last_name => "Silverlight", :email => "rachel.siv@example.com", :contact => true)
-Participant.create(:first_name => "Rachel", :last_name => "Silverlight", :email => "rachel.siv@example.com", :contact => true)
 Participant.create(:first_name => "John", :last_name => "Cook", :email => "john@example.com", :contact => true)
 Participant.create(:first_name => "Josh", :last_name => "Leeper", :email => "josh@example.com", :contact => true)
 

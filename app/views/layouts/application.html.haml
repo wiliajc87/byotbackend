@@ -28,14 +28,19 @@
         %a.navbar-brand(href="/") BYOTBackend
         .navbar-collapse.collapse.navbar-responsive-collapse
           %ul.nav.navbar-nav
-            %li= link_to "Shows", "/shows"
-            %li= link_to "Plays", "/plays"
-            %li= link_to "Participants", "/participants"
+            - if user_signed_in?
+              %li= link_to "Logout (#{current_user.email})", destroy_user_session_path, :method => :delete
+              %li= link_to "Shows", "/shows"
+              %li= link_to "Plays", "/plays"
+              %li= link_to "Participants", "/participants"
+            - else
+              %li= link_to 'Login', new_user_session_path
+              %li= link_to 'Sign Up', new_user_registration_path
   .container
-    %p.notice= notice
-    %p.alert= alert
     .row
       .col-lg-12
+        %p.notice= notice
+        %p.alert= alert
         = yield
     %footer
       %p &copy; BYOT Productions 2015
