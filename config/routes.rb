@@ -7,5 +7,5 @@ Rails.application.routes.draw do
   resources :participants, except: [:destroy]
   resources :users
 
-  root 'application#index'
+  root 'shows#index'
 end
