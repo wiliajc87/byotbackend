@@ -1,1 +1,6 @@
-%h2= @participant.first_name
+%h2= "#{@participant.first_name} #{@participant.last_name}"
+%h3= "Show Count: #{@participant.show_count}"
+%h3= "Roles Performed:"
+%ul
+- @participant.roles_performed.each do |role|
+  %li= role

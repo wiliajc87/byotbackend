@@ -4,4 +4,11 @@ class Play < ActiveRecord::Base
   belongs_to :show
   validates :title, :presence => true
   validates :show_id, :presence => true
+
+  def writer_array
+    @result = []
+    Play.find(1).performances.where(:role => "Writer").each do |writer|
+      @result << writer
+    end
+  end
 end

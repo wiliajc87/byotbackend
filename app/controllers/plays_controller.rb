@@ -1,7 +1,8 @@
 class PlaysController < ApplicationController
   before_action :authenticate_user!
   def index
-    @plays = Play.all
+    @q = Play.ransack(params[:q])
+    @plays = @q.result(distinct: true)
   end
   def show
     @play = Play.find(params[:id])

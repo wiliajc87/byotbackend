@@ -2,17 +2,17 @@
 %h2 Directors
 %ul
 - @directors.each do |director|
-  %li= "#{director.first_name} #{director.last_name}"
+  %li= link_to "#{director.first_name} #{director.last_name}", "/participants/#{director.id}"
 %h2 Writers
 %ul
 - @writers.each do |writer|
-  %li= "#{writer.first_name} #{writer.last_name}"
+  %li= link_to "#{writer.first_name} #{writer.last_name}", "/participants/#{writer.id}"
 %h2 Actors
 %ul
 - @actors.each do |actor|
-  %li= "#{actor.first_name} #{actor.last_name}"
+  %li= link_to "#{actor.first_name} #{actor.last_name}", "/participants/#{actor.id}"
 - if @others.count != 0
   %h2 Others
   %ul
   - @others.each do |other|
-    %li= "#{other.participant.first_name} #{other.participant.last_name}--#{other.role}"
+    %li= link_to "#{other.participant.first_name} #{other.participant.last_name}--#{other.role}", "/participants/#{other.id}"

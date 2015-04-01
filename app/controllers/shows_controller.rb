@@ -1,7 +1,8 @@
 class ShowsController < ApplicationController
   before_action :authenticate_user!
   def index
-    @shows = Show.all
+    @q = Show.ransack(params[:q])
+    @shows = @q.result.includes(:participants)
   end
 
   def show
