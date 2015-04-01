@@ -1,5 +1,10 @@
 %h2= "#{@participant.first_name} #{@participant.last_name}"
 %h3= "Show Count: #{@participant.show_count}"
+%h3
+  -if @participant.member? == true
+    Member Status: Yes
+  -else
+    Member Status: No
 %h3= "Roles Performed:"
 %ul
 - @participant.roles_performed.each do |role|
