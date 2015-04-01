@@ -1,18 +1,19 @@
 %h1= @play.title
-%h2 Directors
+%h2= link_to "#{@play.show.title}, #{@play.show.month}--#{@play.show.year}", "/shows/#{@play.show.id}"
+%h3 Directors
 %ul
 - @directors.each do |director|
   %li= link_to "#{director.first_name} #{director.last_name}", "/participants/#{director.id}"
-%h2 Writers
+%h3 Writers
 %ul
 - @writers.each do |writer|
   %li= link_to "#{writer.first_name} #{writer.last_name}", "/participants/#{writer.id}"
-%h2 Actors
+%h3 Actors
 %ul
 - @actors.each do |actor|
   %li= link_to "#{actor.first_name} #{actor.last_name}", "/participants/#{actor.id}"
 - if @others.count != 0
-  %h2 Others
+  %h3 Others
   %ul
   - @others.each do |other|
     %li= link_to "#{other.participant.first_name} #{other.participant.last_name}--#{other.role}", "/participants/#{other.id}"
