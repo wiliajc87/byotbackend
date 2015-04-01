@@ -1,4 +1,8 @@
-%h1 Plays Home
-%ul
--@plays.each do |play|
-  %li= link_to play.title, "/plays/#{play.id}"
+%h1 Plays
+= search_form_for @q do |f|
+  %p
+    = f.label "Title:"
+    = f.search_field :title_cont
+  = f.submit
+  -@plays.each do |play|
+    %li= link_to play.title, "/plays/#{play.id}"

@@ -1,4 +1,15 @@
 %h2 Participants
+= search_form_for @q do |f|
+  %p
+    = f.label "First Name:"
+    = f.search_field :first_name_cont
+  %p
+    = f.label "Last Name:"
+    = f.search_field :last_name_cont
+  %p
+    = f.label "Email:"
+    = f.search_field :email_cont
+  = f.submit
 %ul
   -@participants.each do |part|
     %li= link_to "#{part.first_name} #{part.last_name}", "/participants/#{part.id}"
