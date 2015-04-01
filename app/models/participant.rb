@@ -14,4 +14,7 @@ class Participant < ActiveRecord::Base
     end
     roles = roles.uniq
   end
+  def member?
+    self.show_count >= 6
+  end
 end
