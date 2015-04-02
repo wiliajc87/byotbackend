@@ -4,6 +4,20 @@ class PlaysController < ApplicationController
     @q = Play.ransack(params[:q])
     @plays = @q.result(distinct: true)
   end
+
+  def new
+    @play = Play.new
+  end
+
+  def create
+    @play = Play.new(:title => params[:title], :show => Show.where(:title => params[:show].first))
+    if @play.save
+      redirect_to @play
+    else
+      render :new
+    end
+  end
+
   def show
     @play = Play.find(params[:id])
     @directors = []
