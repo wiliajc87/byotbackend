@@ -1,3 +1,5 @@
+require 'csv'
+
 Participant.create(:first_name => "Jordy", :last_name => "Williams", :email => "jordy@example.com", :contact => true)
 Participant.create(:first_name => "Rachel", :last_name => "Morgan", :email => "rachel@example.com", :contact => true)
 Participant.create(:first_name => "Cory", :last_name => "O'Brien", :email => "cory@example.com", :contact => true)
@@ -27,3 +29,8 @@ Performance.create(:participant_id => 5, :show_id => 1, :play_id => 2, :role => 
 Performance.create(:participant_id => 6, :show_id => 1, :play_id => 2, :role => "Actor")
 Performance.create(:participant_id => 7, :show_id => 1, :play_id => 2, :role => "Actor")
 Performance.create(:participant_id => 8, :show_id => 1, :play_id => 2, :role => "Director")
+
+CSV.foreach("byotcsv.csv") do |row|
+  name = row[0].split(" ")
+  Participant.create(:first_name => name[0], :last_name => name[1], :email => row[1])
+end
