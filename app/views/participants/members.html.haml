@@ -1,0 +1,4 @@
+%h2 BYOT's Members
+%ul
+  -@members.each do |member|
+    %li= link_to "#{member.name}", "/participants/#{member.id}"

@@ -1,15 +1,17 @@
 %h2 Participants
+%p= link_to "Members", "/members"
+%p= link_to "Add Participant", "/participants/new"
 = search_form_for @q do |f|
   %p
-    = f.label "First Name:"
-    = f.search_field :first_name_cont
-  %p
-    = f.label "Last Name:"
-    = f.search_field :last_name_cont
+    = f.label "Name:"
+    = f.search_field :name_cont
   %p
     = f.label "Email:"
     = f.search_field :email_cont
   = f.submit
 %ul
   -@participants.each do |part|
-    %li= link_to "#{part.first_name} #{part.last_name}", "/participants/#{part.id}"
+    -if part.member? == true
+      %li= link_to "#{part.name}***", "/participants/#{part.id}"
+    -else
+      %li= link_to "#{part.name}", "/participants/#{part.id}"

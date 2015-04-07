@@ -1,0 +1,15 @@
+= form_for :participant, url: participants_path, method: :post do |f|
+  %p
+    = f.text_field :name, placeholder: "Name:"
+  %p
+    = f.text_field :email, placeholder: "Email:"
+  %p
+    = f.text_field :phone, placeholder: "Phone Number:"
+  %p
+    = f.text_field :photo_url, placeholder: "Photo Url"
+  %p
+    = f.label :contact?
+    = f.check_box :contact, {checked: true}
+  %p
+    = f.text_area :notes, placeholder: "Notes"
+  = f.submit
