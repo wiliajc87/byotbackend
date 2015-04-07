@@ -4,4 +4,3 @@ class Show < ActiveRecord::Base
   has_many :participants, through: :performances
   validates :title, :presence => true
 end
-
