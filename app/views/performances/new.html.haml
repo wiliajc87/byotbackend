@@ -1,0 +1,6 @@
+= form_for :performance, url: show_play_performances_path, method: :post do |f|
+  %p
+    = f.collection_select :participant_id, Participant.all, :id, :name
+  %p
+    = f.text_field :role, placeholder: "Role"
+  = f.submit
