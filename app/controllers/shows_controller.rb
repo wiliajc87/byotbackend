@@ -2,7 +2,7 @@ class ShowsController < ApplicationController
   before_action :authenticate_user!
   def index
     @q = Show.ransack(params[:q])
-    @shows = @q.result.includes(:participants)
+    @shows = @q.result(distinct: true).includes(:participants)
   end
 
   def show
@@ -21,8 +21,6 @@ class ShowsController < ApplicationController
       render :new
     end
   end
-
-
 
   private
   def show_params

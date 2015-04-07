@@ -1,4 +1,4 @@
-class PlaysController < ApplicationController
+class PlaysController < ShowsController
   before_action :authenticate_user!
   def index
     @q = Play.ransack(params[:q])
@@ -6,20 +6,20 @@ class PlaysController < ApplicationController
   end
 
   def new
+    @show = Show.find(params[:show_id])
     @play = Play.new
   end
 
   def create
-    @play = Play.new(:title => params[:title], :show => Show.where(:title => params[:show].first))
-    if @play.save
-      redirect_to @play
-    else
-      render :new
-    end
+    @show = Show.find(params[:show_id])
+    @play = @show.plays.create(show_play_params)
+    redirect_to "/shows/#{@show.id}/plays/#{@play.id}"
   end
 
   def show
+    @show = Show.find(params[:show_id])
     @play = Play.find(params[:id])
+    @participants = @play.participants
     @directors = []
     @writers = []
     @actors = []
@@ -36,5 +36,8 @@ class PlaysController < ApplicationController
     @play.performances.where.not(:role => ["Actor","Writer","Director"]).each do |other|
       @others << other
     end
+  end
+  def show_play_params
+    params.require(:play).permit!
   end
 end
