@@ -4,5 +4,5 @@
     = f.label "Title:"
     = f.search_field :title_cont
   = f.submit
-  -@plays.each do |play|
-    %li= link_to play.title, "/plays/#{play.id}"
+-@plays.each do |play|
+  %li= link_to play.title, "/shows/#{play.show_id}/plays/#{play.id}"

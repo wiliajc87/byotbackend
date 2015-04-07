@@ -6,13 +6,13 @@
     = f.search_field :title_cont
   %p
     = f.label "Month:"
-    = f.search_field :year_cont
+    = f.search_field :month_cont
   %p
     = f.label "Year:"
     = f.search_field :year_cont
   %p
-    = f.label "Participant's First Name:"
-    = f.search_field :participants_first_name_cont
+    = f.label "Participant's Name:"
+    = f.search_field :participants_name_cont
   = f.submit
 %ul
 - @shows.each do |show|

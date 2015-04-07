@@ -1,6 +1,3 @@
--array = show_title_array
-
-= form_for :play, url: plays_path, method: :post do |f|
+= form_for :play, url: show_plays_path, method: :post do |f|
   = f.text_field :title, placeholder: "Title"
-  = f.select :show, array
-  = f.submit "Save Play"
+  = f.submit

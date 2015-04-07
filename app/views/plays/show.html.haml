@@ -1,19 +1,24 @@
 %h1= @play.title
 %h2= link_to "#{@play.show.title}, #{@play.show.month}--#{@play.show.year}", "/shows/#{@play.show.id}"
+%p= link_to "Add Performance", "/shows/#{@show.id}/plays/#{@play.id}/performances/new"
 %h3 Directors
 %ul
 - @directors.each do |director|
-  %li= link_to "#{director.first_name} #{director.last_name}", "/participants/#{director.id}"
+  %li= link_to "#{director.name}", "/participants/#{director.id}"
+  %li= link_to "delete", "/shows/#{@show.id}/plays/#{@play.id}/performances/#{director.performances.where(:play_id => @play.id, :role => "Director").first.id}", :method => 'delete', data: {confirm: "Are you sure?"}
 %h3 Writers
 %ul
 - @writers.each do |writer|
-  %li= link_to "#{writer.first_name} #{writer.last_name}", "/participants/#{writer.id}"
+  %li= link_to "#{writer.name}", "/participants/#{writer.id}"
+  %li= link_to "delete", "/shows/#{@show.id}/plays/#{@play.id}/performances/#{writer.performances.where(:play_id => @play.id, :role => "Writer").first.id}", :method => 'delete', data: {confirm: "Are you sure?"}
 %h3 Actors
 %ul
 - @actors.each do |actor|
-  %li= link_to "#{actor.first_name} #{actor.last_name}", "/participants/#{actor.id}"
+  %li= link_to "#{actor.name}", "/participants/#{actor.id}"
+  %li= link_to "delete", "/shows/#{@show.id}/plays/#{@play.id}/performances/#{actor.performances.where(:play_id => @play.id, :role => "Actor").first.id}", :method => 'delete', data: {confirm: "Are you sure?"}
 - if @others.count != 0
   %h3 Others
   %ul
   - @others.each do |other|
-    %li= link_to "#{other.participant.first_name} #{other.participant.last_name}--#{other.role}", "/participants/#{other.id}"
+    %li= link_to "#{other.participant.name}--#{other.role}", "/participants/#{other.participant.id}"
+    %li= link_to "delete", "/shows/#{@show.id}/plays/#{@play.id}/performances/#{other.id}", :method => 'delete', data: {confirm: "Are you sure?"}
