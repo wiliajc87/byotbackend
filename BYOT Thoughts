@@ -1,11 +1,5 @@
 Research Heroku/AWS/Strikingly Pricing and Such
 
-Database modeling for backend
-
-Functionality--
-
-Forum/Posting Board
-
 Staff
   Login
   Passwords
@@ -26,3 +20,34 @@ Plays
   URL
   Cast
   Audience Rating
+
+
+
+THINGS TO DO:
+  Edit options for Shows, Plays, Participants
+  Delete options for Shows, Plays
+  Show Views need to have audience count, venue (+ a link) and Notes
+  Play Views need to have Notes
+  Participants Views need to have notes
+  Venues need to be built. Bleh.
+
+NOTES FOR THESE RULES
+Participants--After 6 shows, consecutively, they lose status if they had it
+  At 5 missed shows, they need a warning.
+When someone is at 5 shows, alert staff about potential new members
+  Participants need a Lost? attribute for losing status because they can regain some show counts.
+
+
+
+
+Hosting Scripts
+  Refer to URLS
+  REALLY host scripts?
+
+Options for sending emails to groups of people--by various topics
+
+
+2.0
+  Sign-Up System
+  Create a formatted sheet for cast/directors/writers
+  Automated email about warning of lost status and gaining status

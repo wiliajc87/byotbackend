@@ -11,15 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150331193055) do
+ActiveRecord::Schema.define(version: 20150407022156) do
 
   create_table "participants", force: :cascade do |t|
-    t.string   "first_name"
-    t.string   "last_name"
+    t.string   "name"
     t.string   "email"
     t.string   "phone"
+    t.string   "photo_url"
+    t.boolean  "override"
     t.boolean  "contact",    default: true
-    t.string   "notes"
+    t.text     "notes"
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
   end
@@ -29,13 +30,15 @@ ActiveRecord::Schema.define(version: 20150331193055) do
     t.integer  "show_id"
     t.integer  "play_id"
     t.string   "role"
+    t.text     "notes"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
   end
 
   create_table "plays", force: :cascade do |t|
-    t.string   "title"
     t.integer  "show_id"
+    t.string   "title"
+    t.text     "notes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -44,8 +47,10 @@ ActiveRecord::Schema.define(version: 20150331193055) do
     t.string   "title"
     t.string   "month"
     t.string   "year"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "audience_count"
+    t.text     "notes"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -63,5 +68,16 @@ ActiveRecord::Schema.define(version: 20150331193055) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+
+  create_table "venues", force: :cascade do |t|
+    t.integer  "show_id"
+    t.string   "contact_name"
+    t.integer  "phone"
+    t.text     "address"
+    t.text     "cost"
+    t.text     "notes"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
 
 end
