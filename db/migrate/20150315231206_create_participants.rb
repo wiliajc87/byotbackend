@@ -1,12 +1,13 @@
 class CreateParticipants < ActiveRecord::Migration
   def change
     create_table :participants do |t|
-      t.string :first_name
-      t.string :last_name
+      t.string :name
       t.string :email
       t.string :phone
+      t.string :photo_url
+      t.boolean :override
       t.boolean :contact, default: true
-      t.string :notes
+      t.text :notes
 
       t.timestamps null: false
     end

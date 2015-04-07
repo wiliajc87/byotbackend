@@ -5,6 +5,7 @@ class CreatePerformances < ActiveRecord::Migration
       t.belongs_to :show
       t.belongs_to :play
       t.string :role
+      t.text :notes
 
       t.timestamps null: false
     end

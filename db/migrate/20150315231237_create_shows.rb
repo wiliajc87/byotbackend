@@ -4,6 +4,8 @@ class CreateShows < ActiveRecord::Migration
       t.string :title
       t.string :month
       t.string :year
+      t.integer :audience_count
+      t.text :notes
 
       t.timestamps null: false
     end
