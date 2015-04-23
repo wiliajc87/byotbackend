@@ -12,9 +12,12 @@
   -else
     Member Status: No
 %h3= "Phone: #{@participant.phone}"
-%h3= "Email: #{@participant.email}"
+%h3= "Email:"
+= mail_to @participant.email
 %h3= "Ok to Contact: #{@contact_status}"
 %h3= "Roles Performed:"
 %ul
 - @participant.roles_performed.each do |role|
   %li= role
+%h3 Notes:
+%li= @participant.notes
